@@ -1,0 +1,45 @@
+body {
+    background-image: url("../images/background.png");
+}
+
+/* unvisited link */
+.titleLink:link {
+    color: white;
+}
+
+/* visited link */
+.titleLink:visited {
+    color: white;
+}
+
+/* mouse over link */
+.titleLink:hover {
+    color: green;
+}
+
+/* selected link */
+.titleLink:active {
+    color: black;
+}
+
+
+/*!* unvisited link *!*/
+/*a:link {*/
+    /*color: red;*/
+/*}*/
+
+/*!* visited link *!*/
+/*a:visited {*/
+    /*color: green;*/
+/*}*/
+
+/*!* mouse over link *!*/
+/*a:hover {*/
+    /*color: hotpink;*/
+/*}*/
+
+/*!* selected link *!*/
+/*a:active {*/
+    /*color: blue;*/
+/*}*/
+

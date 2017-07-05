@@ -43,6 +43,13 @@ class Advertisment
     private $expiredDate;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string")
+     */
+    private $title;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="advertisment")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -223,5 +230,28 @@ class Advertisment
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Advertisment
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 }

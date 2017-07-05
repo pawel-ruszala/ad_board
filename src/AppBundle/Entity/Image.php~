@@ -67,4 +67,27 @@ class Image
     {
         return $this->pathImage;
     }
+
+    /**
+     * Set advertisment
+     *
+     * @param \AppBundle\Entity\Advertisment $advertisment
+     * @return Image
+     */
+    public function setAdvertisment(\AppBundle\Entity\Advertisment $advertisment = null)
+    {
+        $this->advertisment = $advertisment;
+
+        return $this;
+    }
+
+    /**
+     * Get advertisment
+     *
+     * @return \AppBundle\Entity\Advertisment 
+     */
+    public function getAdvertisment()
+    {
+        return $this->advertisment;
+    }
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{#XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD#}
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -17,28 +18,45 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+
 <div class="container">
-    <div class="col-md-12">
-        <h3>Menu</h3>
-        {{ knp_menu_render('AppBundle:Builder:mainMenu') }} <hr/>
-    </div>
     <div class="row">
-        <div class="col-md-8">
-            <h1>Content</h1>
-            {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
-        </div>
-        <div class="col-md-4">
-            <h1>Sidebar</h1>
+        <div class="col-md-12">
+            <h3>Menu</h3>
+            <ul class="nav nav-pills">
+                <li><a href="{{ path('homepage') }}"><span class="glyphicon glyphicon-blackboard"></span> Main page</a> </li>
+                {% if not is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-user"></span>Login</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}"><span class="glyphicon glyphicon-pencil"></span> Register</a></li>
+                {% endif %}
+
+                <li><a href="{{ path('advertisment_index') }}"><span class="glyphicon glyphicon-th-list"></span> All adverts</a></li>
+
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('advertisment_new') }}"><span class="glyphicon glyphicon-plus"></span> New advert</a></li>
+                    <li><a href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-user"></span>Your profile</a></li>
+                    <li><a href="{{ path('userAdv') }}"><span class="glyphicon glyphicon-inbox"></span> Your adverts</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                {% endif %}
+            </ul>
+            <hr/>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">Div1</div>
-        <div class="col-md-4">Div2</div>
-        <div class="col-md-4">Div3</div>
+        <div class="col-md-2">
+            <h3>Categories</h3>
+            <ul class="nav nav-pills nav-stacked">
+                {{ render(controller(
+                'AppBundle:Category:categoriesMenu')) }}
+            </ul>
+        </div>
+        <div class="col-md-10">
+            {% block body %}{% endblock %}
+        </div>
     </div>
 </div>
 

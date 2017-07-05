@@ -135,4 +135,10 @@ class Category
     {
         return $this->parent;
     }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
 }

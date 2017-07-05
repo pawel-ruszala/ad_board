@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="row">
+            <h1 class="text-center">Advertisment</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-left">Author: {{ advertisment.user.username }}</h3>
+            </div>
+
+            <div class="col-md-6">
+                <div class="text-right">
+                    <span>Date of create: {{ advertisment.creationDate|date('Y-m-d H:i:s') }}</span><br/>
+                    <span>Date of expire {{ advertisment.expiredDate|date('Y-m-d H:i:s') }}</span>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <p>{{ advertisment.text }}</p>
+    </div>
+
+    <div class="row">
+        <h3>Contact email: {{ advertisment.user.email }}</h3>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<table>#}
+    {#<tbody>#}
+    {#<tr>#}
+        {#<th>Author</th>#}
+        {#<td>{{ advertisment.user.username }}</td>#}
+    {#</tr>#}
+    {#<tr>#}
+        {#<th>Title</th>#}
+        {#<td>{{ advertisment.title }}</td>#}
+    {#</tr>#}
+    {#<tr>#}
+        {#<th>Text</th>#}
+        {#<td>{{ advertisment.text }}</td>#}
+    {#</tr>#}
+    {#<tr>#}
+        {#<th>Date of created</th>#}
+        {#<td>{% if advertisment.creationDate %}{{ advertisment.creationDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+    {#</tr>#}
+    {#<tr>#}
+        {#<th>Date of expire</th>#}
+        {#<td>{% if advertisment.expiredDate %}{{ advertisment.expiredDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+    {#</tr>#}
+    {#</tbody>#}
+{#</table>#}
+
+{#<ul>#}
+    {#<li>#}
+        {#<a href="{{ path('advertisment_index') }}">Back to the list</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#<a href="{{ path('advertisment_edit', { 'id': advertisment.id }) }}">Edit</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#{{ form_start(delete_form) }}#}
+        {#<input type="submit" value="Delete">#}
+        {#{{ form_end(delete_form) }}#}
+    {#</li>#}
+{#</ul>#}

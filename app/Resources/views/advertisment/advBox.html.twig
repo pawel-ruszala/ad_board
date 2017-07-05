@@ -1,0 +1,39 @@
+<div class="row">
+
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+        {% if app.user.id == advertisment.user.id %}
+            <div class="text-right">
+                <a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+            </div>
+
+        {% endif %}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="color: white"><h4 style="display: inline-block">
+                        <a class="titleLink"
+                           href="{{ path('advertisment_show', {'id':advertisment.id}) }}">Title: {{ advertisment.title }}</a>
+                    </h4></h3>
+            </div>
+            <div class="panel-body">
+                {{ advertisment.text|length > 300 ? advertisment.text|slice(0, 300) ~ '...' : advertisment.text }}
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-left">Author: {{ advertisment.user.username }}</h5>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="text-right">
+                            <span>Date of create: {{ advertisment.creationDate|date('Y-m-d H:i:s') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>

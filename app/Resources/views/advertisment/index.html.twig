@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
+    <h1 class="text-center">Advertisements list</h1>
 
-    Siemka stornka do ogłoszeń w sprawie sprzedaży jakiegoś sprzeętu domowego xDD ale w najbliższym czasie będzie do ogłoszeń na temat pracy: szukam/dam prace XD pozdro
+    <div class="container">
+        {% for advertisment in advertisments %}
+            {% include 'advertisment/advBox.html.twig' %}
+        {% endfor %}
+    </div>
+
 {% endblock %}
 
 

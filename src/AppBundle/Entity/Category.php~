@@ -72,4 +72,73 @@ class Category
     {
         return $this->name;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->advertisments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add advertisments
+     *
+     * @param \AppBundle\Entity\Category $advertisments
+     * @return Category
+     */
+    public function addAdvertisment(\AppBundle\Entity\Category $advertisments)
+    {
+        $this->advertisments[] = $advertisments;
+
+        return $this;
+    }
+
+    /**
+     * Remove advertisments
+     *
+     * @param \AppBundle\Entity\Category $advertisments
+     */
+    public function removeAdvertisment(\AppBundle\Entity\Category $advertisments)
+    {
+        $this->advertisments->removeElement($advertisments);
+    }
+
+    /**
+     * Get advertisments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAdvertisments()
+    {
+        return $this->advertisments;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \AppBundle\Entity\Category $parent
+     * @return Category
+     */
+    public function setParent(\AppBundle\Entity\Category $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \AppBundle\Entity\Category 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
 }
