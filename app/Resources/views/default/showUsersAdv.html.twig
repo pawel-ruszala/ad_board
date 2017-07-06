@@ -3,10 +3,10 @@
 {% block body %}
     <h1 class="text-center">Advertisements list</h1>
 
-    <div class="container">
-{% for advertisment in adverts %}
-    {% include 'advertisment/advBox.html.twig' %}
-{% endfor %}
+    <div class="">
+        {% for advertisment in adverts %}
+            {% include 'advertisment/advBox.html.twig' %}
+        {% endfor %}
     </div>
 
 {% endblock %}

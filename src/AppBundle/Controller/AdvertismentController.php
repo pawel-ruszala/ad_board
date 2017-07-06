@@ -46,10 +46,6 @@ class AdvertismentController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $date = new \DateTime();
-            $advertisment->setCreationDate($date);
-            $expDate = $date->modify('+1 month');
-            $advertisment->setExpiredDate($expDate);
             $advertisment->setUser($this->getUser());
             $em->persist($advertisment);
             $em->flush();

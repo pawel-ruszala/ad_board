@@ -3,13 +3,14 @@
 </div>
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-md-10">
+
         {% if app.user.id == advertisment.user.id %}
             <div class="text-right">
                 <a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
             </div>
-
         {% endif %}
+
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title" style="color: white"><h4 style="display: inline-block">

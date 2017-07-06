@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Advertisments
@@ -58,6 +59,7 @@ class Advertisment
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="advertisment");
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @Assert\NotNull()
      */
     private $category;
 
@@ -150,6 +152,9 @@ class Advertisment
      */
     public function __construct()
     {
+        $this->setCreationDate(new \DateTime());
+        $this->setExpiredDate(new \DateTime('now + 1 month'));
+
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
