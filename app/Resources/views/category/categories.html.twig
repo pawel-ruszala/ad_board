@@ -1,3 +1,8 @@
 {% for category in categories %}
-    <li><a href="{{ path('showByCategory', {'id':category.id}) }}"> <span class="glyphicon glyphicon-chevron-right">{{ category.name }}</span></a></li>
+    <li style="background-color:rgba(171,171,171,0.1); border-radius: 10px" >
+        <a href="{{ path('showByCategory', {'id':category.id}) }}">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            {{ category.name }}
+        </a>
+    </li>
 {% endfor %}

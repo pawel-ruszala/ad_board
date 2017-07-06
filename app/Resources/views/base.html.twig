@@ -21,28 +21,52 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h3>Menu</h3>
-            <ul class="nav nav-pills">
-                <li><a href="{{ path('homepage') }}"><span class="glyphicon glyphicon-blackboard"></span> Main page</a> </li>
+        <div class="col-md-8">
+            <img src="{{ asset('images/symfony.ico') }}">
+            <h3 style="display: inline-block"> Menu</h3>
+            <ul class="nav nav-pills navbar navbar-info">
+                <li>
+                    <a href="{{ path('homepage') }}"><span class="glyphicon glyphicon-blackboard"></span> Main page</a>
+                </li>
+
                 {% if not is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-user"></span>Login</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}"><span class="glyphicon glyphicon-pencil"></span> Register</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-user"></span>Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_registration_register') }}"><span class="glyphicon glyphicon-pencil"></span> Register</a>
+                    </li>
                 {% endif %}
 
-                <li><a href="{{ path('advertisment_index') }}"><span class="glyphicon glyphicon-th-list"></span> All adverts</a></li>
+                <li>
+                    <a href="{{ path('advertisment_index') }}"><span class="glyphicon glyphicon-th-list"></span> All adverts</a>
+                </li>
 
                 {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('advertisment_new') }}"><span class="glyphicon glyphicon-plus"></span> New advert</a></li>
-                    <li><a href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-user"></span>Your profile</a></li>
-                    <li><a href="{{ path('userAdv') }}"><span class="glyphicon glyphicon-inbox"></span> Your adverts</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                    <li>
+                        <a href="{{ path('advertisment_new') }}"><span class="glyphicon glyphicon-plus"></span> New advert</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-user"></span>Your profile</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('userAdv') }}"><span class="glyphicon glyphicon-inbox"></span> Your adverts</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span>Logout</a>
+                    </li>
                 {% endif %}
             </ul>
             <hr/>
+        </div>
+        <div class="col-md-4">
+            <form class="navbar-form navbar-right" role="search" action="{{ path('search') }}">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
     </div>
 
@@ -50,8 +74,7 @@
         <div class="col-md-2">
             <h3>Categories</h3>
             <ul class="nav nav-pills nav-stacked">
-                {{ render(controller(
-                'AppBundle:Category:categoriesMenu')) }}
+                {{ render(controller('AppBundle:Category:categoriesMenu')) }}
             </ul>
         </div>
         <div class="col-md-10">

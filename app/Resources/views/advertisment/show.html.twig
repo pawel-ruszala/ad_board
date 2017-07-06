@@ -7,7 +7,8 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h3 class="text-left">Author: {{ advertisment.user.username }}</h3>
+            <h4 class="text-left">Author: {{ advertisment.user.username }}</h4>
+            <h2 class="text-left">{{ advertisment.title }}</h2>
         </div>
 
         <div class="col-md-6">
@@ -28,78 +29,13 @@
         </div>
         {% if app.user.id == advertisment.user.id %}
             <div class=" col-md-3 text-right">
-                <h3><a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span
-                                class="glyphicon glyphicon-pencil">Edit</span></a></h3>
+                <h3><a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a></h3>
             </div>
         {% endif %}
+    
+        {% for image in images %}
+            <img src="{{ asset(image.pathImage) }}">
+        {% endfor %}
     </div>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{#<table>#}
-    {#<tbody>#}
-    {#<tr>#}
-        {#<th>Author</th>#}
-        {#<td>{{ advertisment.user.username }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-        {#<th>Title</th>#}
-        {#<td>{{ advertisment.title }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-        {#<th>Text</th>#}
-        {#<td>{{ advertisment.text }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-        {#<th>Date of created</th>#}
-        {#<td>{% if advertisment.creationDate %}{{ advertisment.creationDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-        {#<th>Date of expire</th>#}
-        {#<td>{% if advertisment.expiredDate %}{{ advertisment.expiredDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
-    {#</tr>#}
-    {#</tbody>#}
-{#</table>#}
-
-{#<ul>#}
-    {#<li>#}
-        {#<a href="{{ path('advertisment_index') }}">Back to the list</a>#}
-    {#</li>#}
-    {#<li>#}
-        {#<a href="{{ path('advertisment_edit', { 'id': advertisment.id }) }}">Edit</a>#}
-    {#</li>#}
-    {#<li>#}
-        {#{{ form_start(delete_form) }}#}
-        {#<input type="submit" value="Delete">#}
-        {#{{ form_end(delete_form) }}#}
-    {#</li>#}
-{#</ul>#}

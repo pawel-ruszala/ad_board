@@ -1,10 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Advertisment creation</h1>
 
+
+    <h1>Advertisment creation</h1>
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div>
+            {{ form_label(form.title) }}<br/>
+            {{ form_widget(form.title) }}
+        </div>
+        <br/>
+        <div>
+            {{ form_label(form.text) }}<br/>
+            {{ form_widget(form.text) }}
+        </div>
+        <div>
+            {{ form_label(form.category) }}
+            {{ form_widget(form.category) }}
+        </div>
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

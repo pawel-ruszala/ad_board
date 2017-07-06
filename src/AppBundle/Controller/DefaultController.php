@@ -30,4 +30,17 @@ class DefaultController extends Controller
 
         return $this->render('default/showUsersAdv.html.twig', array('adverts'=>$adverts));
     }
+
+    /**
+     * @Route("/search", name="search")
+     */
+    public function searchAction(Request $request)
+    {
+        $title = $request->query->get('search');
+        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->search($title);
+
+        return $this->render('default/showUsersAdv.html.twig', array(
+            'adverts'=> $adverts
+        ));
+    }
 }

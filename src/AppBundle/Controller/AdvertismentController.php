@@ -68,10 +68,12 @@ class AdvertismentController extends Controller
     public function showAction(Advertisment $advertisment)
     {
         $deleteForm = $this->createDeleteForm($advertisment);
+        $images = $this->getDoctrine()->getRepository('AppBundle:Image')->findBy(array('advertisment'=>$advertisment->getId()));
 
         return $this->render('advertisment/show.html.twig', array(
             'advertisment' => $advertisment,
             'delete_form' => $deleteForm->createView(),
+            'images' => $images
         ));
     }
 
@@ -83,6 +85,14 @@ class AdvertismentController extends Controller
      */
     public function editAction(Request $request, Advertisment $advertisment)
     {
+//        $userId = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->find($id)->getUser();
+        $userId = $advertisment->getUser();
+        $user = $this->getUser();
+
+        if($user !== $userId){
+            throw $this->createAccessDeniedException("That's not your advert.");
+        }
+
         $deleteForm = $this->createDeleteForm($advertisment);
         $editForm = $this->createForm('AppBundle\Form\AdvertismentType', $advertisment);
         $editForm->handleRequest($request);

@@ -17,7 +17,7 @@ class AdvertismentType extends AbstractType
         $now = new \DateTime();
         $now = $now->format('Y-m-d');
         echo $now;
-        $builder->add('title')->add('text')->add('category');
+        $builder->add('title')->add('text', 'textarea', array('attr' => array('cols'=>50, 'rows'=>8)))->add('category');
     }
     
     /**

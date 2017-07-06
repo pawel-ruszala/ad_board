@@ -14,12 +14,12 @@ body {
 
 /* mouse over link */
 .titleLink:hover {
-    color: green;
+    color: black;
 }
 
 /* selected link */
 .titleLink:active {
-    color: black;
+    color: green;
 }
 
 

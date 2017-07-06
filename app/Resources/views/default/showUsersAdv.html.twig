@@ -4,9 +4,12 @@
     <h1 class="text-center">Advertisements list</h1>
 
     <div class="">
-        {% for advertisment in adverts %}
-            {% include 'advertisment/advBox.html.twig' %}
-        {% endfor %}
+        {% if adverts|length %}
+            {% for advertisment in adverts %}
+                {% include 'advertisment/advBox.html.twig' %}
+            {% endfor %}
+        {% else %}
+            <strong>Brak danych...</strong>
+        {% endif %}
     </div>
-
 {% endblock %}

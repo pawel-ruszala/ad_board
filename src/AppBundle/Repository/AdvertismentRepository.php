@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class AdvertismentRepository extends EntityRepository
 {
+    public function search(string $phrase)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+              SELECT a
+              FROM AppBundle:Advertisment a
+              WHERE a.title
+              LIKE :phrase OR a.text LIKE :phrase')->setParameter('phrase', '%' . $phrase . '%');
+
+        return $query->getResult();
+    }
 }
