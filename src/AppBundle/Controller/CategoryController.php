@@ -19,7 +19,7 @@ class CategoryController extends Controller
      */
     public function showByCategoryAction($id)
     {
-        $adverts = $this->getDoctrine()->getRepository("AppBundle:Advertisment")->findBy(array('category'=>$id));
+        $adverts = $this->getDoctrine()->getRepository("AppBundle:Advertisment")->findBy(array('category'=>$id), array('creationDate' => 'DESC'));
         return $this->render('category/showByCategory.html.twig', array('adverts'=>$adverts));
     }
 }

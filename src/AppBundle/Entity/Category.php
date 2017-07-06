@@ -29,7 +29,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="Category")
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="category")
      */
     private $advertisments;
 

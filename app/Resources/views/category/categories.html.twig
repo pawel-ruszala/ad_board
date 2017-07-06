@@ -3,6 +3,7 @@
         <a href="{{ path('showByCategory', {'id':category.id}) }}">
             <span class="glyphicon glyphicon-chevron-right"></span>
             {{ category.name }}
+            {#({{ category.advertisments|length }})#}
         </a>
     </li>
 {% endfor %}

@@ -5,9 +5,9 @@
     <div class="col-md-1"></div>
     <div class="col-md-10">
 
-        {% if app.user.id == advertisment.user.id %}
+        {% if app.user == advertisment.user %}
             <div class="text-right">
-                <a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
             </div>
         {% endif %}
 

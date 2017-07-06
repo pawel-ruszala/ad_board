@@ -7,7 +7,8 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h4 class="text-left">Author: {{ advertisment.user.username }}</h4>
+            <a href="{{ path('showProfile', {'id':advertisment.user.id }) }}"> <h4 class="text-left">Author: {{ advertisment.user.username }}</h4></a>
+            <h5 class="text-left">Category: {{ advertisment.category.name }}</h5>
             <h2 class="text-left">{{ advertisment.title }}</h2>
         </div>
 

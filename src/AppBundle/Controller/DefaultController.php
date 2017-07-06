@@ -15,18 +15,23 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findAll();
+        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findBy(array(), array('creationDate' => 'DESC'), 2);
 
-        return $this->render('default/index.html.twig', array('advertisments'=>$adverts));
+        return $this->render('default/index.html.twig', array('adverts'=>$adverts));
     }
 
     /**
-     * @Route("/showByUser", name="userAdv")
+     * @Route("/showByUser/{id}", name="userAdv")
      */
-    public function showUserAds()
+    public function showUserAds($id = null)
     {
-        $user = $this->getUser();
-        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findBy(array('user' => $user));
+        if ($id == null) {
+            $user = $this->getUser();
+        } else {
+            $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
+        }
+
+        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findBy(array('user' => $user), array('creationDate' => 'DESC'));
 
         return $this->render('default/showUsersAdv.html.twig', array('adverts'=>$adverts));
     }
@@ -36,8 +41,8 @@ class DefaultController extends Controller
      */
     public function searchAction(Request $request)
     {
-        $title = $request->query->get('search');
-        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->search($title);
+        $phrase = $request->query->get('search');
+        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->search($phrase);
 
         return $this->render('default/showUsersAdv.html.twig', array(
             'adverts'=> $adverts

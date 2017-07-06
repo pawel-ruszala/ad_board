@@ -1,41 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <p>Siemka stornka do ogłoszeń w sprawie sprzedaży jakiegoś sprzeętu domowego xDD ale w najbliższym czasie będzie do ogłoszeń na temat pracy: szukam/dam prace XD pozdro</p><br/>
+    <p>Siemka stornka do ogłoszeń w sprawie sprzedaży jakiegoś sprzeętu domowego xDD ale w najbliższym czasie będzie do ogłoszeń na temat pracy: szukam/dam prace XD pozdro</p>
+    <ul><h2>To do list</h2>
+        <li>Hide after expired time</li>
+        <li>Update Categories</li>
+        <li>Connect with email</li>
+        <li>Permission picture</li>
+        <li>Add user opinion
+        <ul>
+            <li>green positive</li>
+            <li>red negative</li>
+        </ul></li>
+        <li>Messages between users</li>
+        <li>Numbers of adverts in category</li>
+        <li>New/used</li>
+    </ul>
+    <br/>
     <p>Dodam tutaj za pomocą jakich narzędzi zrobiłem, jakie ma funkcjonalności, co ta stronka robi po co jest :D</p>
+
+    <h1 class="text-center">Lasts advertisments</h1>
+
+    <div class="">
+        {% if adverts|length %}
+            {% for advertisment in adverts %}
+                {% include 'advertisment/advBox.html.twig' %}
+            {% endfor %}
+        {% else %}
+            <strong>Brak danych...</strong>
+        {% endif %}
+    </div>
 {% endblock %}
-
-
-
-    {#<table class="table">#}
-    {#<thead>#}
-    {#<tr>#}
-    {#<th>Title</th>#}
-    {#<th>Category</th>#}
-    {#<th>Date of creation</th>#}
-    {#<th>Date of expire</th>#}
-    {#<th>User</th>#}
-    {#<th>Actions</th>#}
-    {#</tr>#}
-    {#</thead>#}
-    {#<a href="{{ path('advertisment_new') }}">Create a new advertisment</a>#}
-    {#<tr>#}
-    {#<td>{{ advertisment.title }}</td>#}
-    {#<td>{{ advertisment.category.name }}</td>#}
-    {#<td>{% if advertisment.creationDate %}{{ advertisment.creationDate|date('Y-m-d') }}{% endif %}</td>#}
-    {#<td>{% if advertisment.expiredDate %}{{ advertisment.expiredDate|date('Y-m-d') }}{% endif %}</td>#}
-    {#<td>{{ advertisment.user.username }}</td>#}
-    {#<td>#}
-    {#<ul>#}
-    {#<li>#}
-    {#<a href="{{ path('advertisment_show', { 'id': advertisment.id }) }}">show</a>#}
-    {#</li>#}
-    {#<li>#}
-    {#<a href="{{ path('advertisment_edit', { 'id': advertisment.id }) }}">edit</a>#}
-    {#</li>#}
-    {#</ul>#}
-    {#</td>#}
-    {#</tr>#}
-    {#</tbody>#}
-{#</table>#}

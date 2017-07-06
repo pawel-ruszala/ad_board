@@ -57,7 +57,7 @@ class Advertisment
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="advertisment");
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="advertisments");
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * @Assert\NotNull()
      */

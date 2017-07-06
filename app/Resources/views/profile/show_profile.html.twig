@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Profile:showProfile{% endblock %}
+
+{% block body %}
+    {% if not user %}
+        <p>That user doesn't exist</p>
+
+    {% else %}
+        <h3 style="display: inline-block"><span class="glyphicon glyphicon-user"></span> Name:&nbsp;&nbsp;</h3>
+        <h2 style="display: inline-block">{{ user.username }}</h2><br/>
+
+        <h3 style="display: inline-block"><span class="glyphicon glyphicon-envelope"></span> Contact email:&nbsp;&nbsp;</h3>
+        <h2 style="display: inline-block">{{ user.email }}</h2><br/>
+        <a href="{{path('userAdv')}}"><button class="btn btn-primary">All {{ user.username }}'s adverts</button></a>
+    {% endif %}
+{% endblock %}

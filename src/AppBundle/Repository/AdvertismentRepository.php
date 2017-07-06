@@ -16,11 +16,15 @@ class AdvertismentRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
 
+        /**
+         * @todo Searching by LIKE isnt Efficiency, it should be changed if database will grow up
+         */
         $query = $em->createQuery('
               SELECT a
               FROM AppBundle:Advertisment a
               WHERE a.title
-              LIKE :phrase OR a.text LIKE :phrase')->setParameter('phrase', '%' . $phrase . '%');
+              LIKE :phrase OR a.text LIKE :phrase
+              ORDER BY a.creationDate DESC')->setParameter('phrase', '%' . $phrase . '%');
 
         return $query->getResult();
     }
