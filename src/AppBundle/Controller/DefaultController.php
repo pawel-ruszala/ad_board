@@ -12,10 +12,10 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexActionAction(Request $request)
     {
         // replace this example code with whatever you need
-        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findBy(array(), array('creationDate' => 'DESC'), 2);
+        $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->findBy(array(), array('creationDate' => 'DESC'), 3);
 
         return $this->render('default/index.html.twig', array('adverts'=>$adverts));
     }
@@ -23,7 +23,7 @@ class DefaultController extends Controller
     /**
      * @Route("/showByUser/{id}", name="userAdv")
      */
-    public function showUserAds($id = null)
+    public function showUserAdsAction($id = null)
     {
         if ($id == null) {
             $user = $this->getUser();

@@ -45,3 +45,8 @@ body {
     width: 100%;
     height: auto;
 }
+
+.thumbnail {
+    width: 250px;
+    height: 340px;
+}

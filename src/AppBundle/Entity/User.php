@@ -29,6 +29,11 @@ class User extends BaseUser
      */
     private $opinions;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Opinion", mappedBy="byUser")
+     */
+    private $opinionBy;
+
     public function __construct()
     {
         parent::__construct();
@@ -66,5 +71,84 @@ class User extends BaseUser
     public function getAdvertisments()
     {
         return $this->advertisments;
+    }
+
+    /**
+     * Add opinions
+     *
+     * @param \AppBundle\Entity\Opinion $opinions
+     * @return User
+     */
+    public function addOpinion(\AppBundle\Entity\Opinion $opinions)
+    {
+        $this->opinions[] = $opinions;
+
+        return $this;
+    }
+
+    /**
+     * Remove opinions
+     *
+     * @param \AppBundle\Entity\Opinion $opinions
+     */
+    public function removeOpinion(\AppBundle\Entity\Opinion $opinions)
+    {
+        $this->opinions->removeElement($opinions);
+    }
+
+    /**
+     * Get opinions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOpinions()
+    {
+        return $this->opinions;
+    }
+
+    /**
+     * Set opinionBy
+     *
+     * @param \AppBundle\Entity\Opinion $opinionBy
+     * @return User
+     */
+    public function setOpinionBy(\AppBundle\Entity\Opinion $opinionBy = null)
+    {
+        $this->opinionBy = $opinionBy;
+
+        return $this;
+    }
+
+    /**
+     * Get opinionBy
+     *
+     * @return \AppBundle\Entity\Opinion 
+     */
+    public function getOpinionBy()
+    {
+        return $this->opinionBy;
+    }
+
+    /**
+     * Add opinionBy
+     *
+     * @param \AppBundle\Entity\Opinion $opinionBy
+     * @return User
+     */
+    public function addOpinionBy(\AppBundle\Entity\Opinion $opinionBy)
+    {
+        $this->opinionBy[] = $opinionBy;
+
+        return $this;
+    }
+
+    /**
+     * Remove opinionBy
+     *
+     * @param \AppBundle\Entity\Opinion $opinionBy
+     */
+    public function removeOpinionBy(\AppBundle\Entity\Opinion $opinionBy)
+    {
+        $this->opinionBy->removeElement($opinionBy);
     }
 }

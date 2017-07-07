@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add opinion</h1>
+            {{ form_start(form) }}
+            <div>
+                {{ form_widget(form.type) }}
+            </div>
+            <br/>
+            <div>
+                {{ form_label(form.text) }}<br/>
+                {{ form_widget(form.text) }}
+            </div>
+            <input type="submit" value="Create" class="btn btn-primary"/>
+            {{ form_end(form) }}
+
+            <ul>
+                <li>
+                    <a href="{{ path('showProfile', {'id':id}) }}">Back to the list</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

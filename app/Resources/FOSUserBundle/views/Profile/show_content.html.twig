@@ -4,4 +4,7 @@
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     <p><a href="{{ path('fos_user_profile_edit') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit profile</button></a></p>
+    <br/>
+    <a href="{{ path('showOpinions', {'id':user.id}) }}"><button class="btn btn-primary">All opinions</button></a>
+    <a href="{{path('userAdv')}}"><button class="btn btn-primary">All {{ user.username }}'s adverts</button></a>
 </div>

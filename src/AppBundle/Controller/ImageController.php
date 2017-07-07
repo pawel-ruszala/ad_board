@@ -42,7 +42,7 @@ class ImageController extends Controller
      * @Route("/addImage/{id}", name="newImage")
      * @Method("POST")
      */
-    public function newImage(Request $request, $id)
+    public function newImageAction(Request $request, $id)
     {
         $form = $this->createFormBuilder()->add('image', 'file', array(
             'constraints' => array(new Assert\Image(array('mimeTypes' => 'image/*')))
