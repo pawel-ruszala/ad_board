@@ -9,24 +9,31 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class ImageController extends Controller
 {
     /**
      * @Route("/addImage/{id}", name="addImage")
      * @Method("GET")
+     * @Assert\Image(
+     *     mimeTypes="image/*"
+     * )
      */
     public function formImageAction($id)
     {
         $userId = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->find($id)->getUser();
         $user = $this->getUser();
 
-        if($user !== $userId){
+        if ($user !== $userId) {
             throw $this->createAccessDeniedException("That's not your advert.");
 
         }
 
-        $form = $this->createFormBuilder()->add('image', 'file')->add('add', 'submit')->getForm();
+        $form = $this->createFormBuilder()->add('image', 'file', array(
+            'constraints' => array(new Assert\ImageValidator(array('mimeTypes' => 'image/*')))
+        ))->add('add', 'submit')->getForm();
 
         return $this->render('image/imageNew.html.twig', array('form' => $form->createView()));
     }
@@ -37,7 +44,9 @@ class ImageController extends Controller
      */
     public function newImage(Request $request, $id)
     {
-        $form = $this->createFormBuilder()->add('image', 'file')->add('add', 'submit')->getForm();
+        $form = $this->createFormBuilder()->add('image', 'file', array(
+            'constraints' => array(new Assert\Image(array('mimeTypes' => 'image/*')))
+        ))->add('add', 'submit')->getForm();
 
         $form->handleRequest($request);
 
@@ -61,5 +70,7 @@ class ImageController extends Controller
 
             return $this->redirectToRoute('advertisment_show', array('id' => $id));
         }
+
+        return $this->render('image/imageNew.html.twig', array('form' => $form->createView()));
     }
 }

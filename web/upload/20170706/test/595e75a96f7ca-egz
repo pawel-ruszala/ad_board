@@ -1,0 +1,34 @@
+egz 1
+
+get
+post
+cookies
+sessions
+funkcje
+funkcje wbudowane
+
+egz oop i sql
+klasy obiekty konstruktory dziedziczenie
+modyfikatory widocznosci funkcje w obiektach
+
+tworzenie bazy, tworzenie tabeli, tworzenie relacji, join
+
+
+abstrakcyjne	
+interfejsy	
+array access	+
+wyr regularne	+
+upload plikow	+
+wyjatki		+
+testy (zad5)	+
+
+
+vendor/bin/phpunit zadanie2/FactorsTest.php
+
+vendor/bin/phpunit tests/ProductTest.php
+
+
+symfony
+ciastka
+sesje
+model

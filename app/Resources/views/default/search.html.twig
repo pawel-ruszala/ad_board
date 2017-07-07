@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Advertisements list</h1>
+    <h1 class="text-left">Results for "{{ phrase }}"</h1>
 
     <div class="">
+    {% if adverts|length %}
         {% for advertisment in adverts %}
             {% include 'advertisment/advBox.html.twig' %}
         {% endfor %}
+        {% else %} <span>No data...</span>
+        {% endif %}
     </div>
 
 {% endblock %}

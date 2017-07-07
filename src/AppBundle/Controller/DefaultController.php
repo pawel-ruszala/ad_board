@@ -44,8 +44,9 @@ class DefaultController extends Controller
         $phrase = $request->query->get('search');
         $adverts = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->search($phrase);
 
-        return $this->render('default/showUsersAdv.html.twig', array(
-            'adverts'=> $adverts
+        return $this->render('default/search.html.twig', array(
+            'adverts'=> $adverts,
+            'phrase' => $phrase
         ));
     }
 }
