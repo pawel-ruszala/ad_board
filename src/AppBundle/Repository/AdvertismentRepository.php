@@ -17,7 +17,7 @@ class AdvertismentRepository extends EntityRepository
         $em = $this->getEntityManager();
 
         /**
-         * @todo Searching by LIKE isnt Efficiency, it should be changed if database will grow up
+         * @todo Searching by LIKE isn't Efficiency, it should be changed if database will grow up
          */
         $query = $em->createQuery('
               SELECT a

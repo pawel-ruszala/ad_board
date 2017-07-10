@@ -1,0 +1,26 @@
+1. Zrobić baze danych			x
+2. Usuwanie z bazy po expired time
+3. Podstawowy wygląd			x
+4. Kategorie
+5. Creation date po prawej		x
+8. Dodawanie zdjęć			x
+9. Blokowanie strony			x
+10. Połączenie z mailem
+11. Dodanie edycji przy pojedyńczym ogłoszeniu x
+12. Dodać wyszukiwarkę			x
+13. Ostatnio dodane			x
+14. Sortowanie				x
+16. Profil użytkownika			x
+16. Dodanie opinii do uzytkwonika (zielone/czerwone)
+17. Pokazanie wszystkich ogłoszeń użytkownika x
+18. Pokazanie kategorii
+19. Wiadomości między użytkownikami
+20. Nowe/używane
+21. Usuwanie zdjęć
+22. Pojawia się data przy edycji
+23. Dodanie ceny
+
+Problemy: 
+
+	*usuwanie z bazy po expired time
+	*walidacja zdjec, w połowie działa, jak dodaje poprawny to się dodaje, jak dodaję błedny format to wywala błąd, że brak returna
