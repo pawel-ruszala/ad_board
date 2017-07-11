@@ -23,4 +23,3 @@
 Problemy: 
 
 	*usuwanie z bazy po expired time
-	*walidacja zdjec, w połowie działa, jak dodaje poprawny to się dodaje, jak dodaję błedny format to wywala błąd, że brak returna
