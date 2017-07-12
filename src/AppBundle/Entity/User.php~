@@ -128,4 +128,27 @@ class User extends BaseUser
     {
         return $this->opinionBy;
     }
+
+    /**
+     * Add opinionBy
+     *
+     * @param \AppBundle\Entity\Opinion $opinionBy
+     * @return User
+     */
+    public function addOpinionBy(\AppBundle\Entity\Opinion $opinionBy)
+    {
+        $this->opinionBy[] = $opinionBy;
+
+        return $this;
+    }
+
+    /**
+     * Remove opinionBy
+     *
+     * @param \AppBundle\Entity\Opinion $opinionBy
+     */
+    public function removeOpinionBy(\AppBundle\Entity\Opinion $opinionBy)
+    {
+        $this->opinionBy->removeElement($opinionBy);
+    }
 }

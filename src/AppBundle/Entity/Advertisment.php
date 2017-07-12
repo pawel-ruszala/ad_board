@@ -27,8 +27,7 @@ class Advertisment
      *
      * @ORM\Column(name="text", type="text")
      * @Assert\Length(
-     *     min=30,
-     *     max=1000
+     *     min=30
      * )
      */
     private $text;
@@ -61,6 +60,17 @@ class Advertisment
      *     )
      */
     private $title;
+
+    /**
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(name="cond", type="string")
+     * @Assert\Choice({"new", "used"})
+     */
+    private $cond;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="advertisment")
@@ -270,5 +280,53 @@ class Advertisment
     public function getTitle()
     {
         return $this->title;
+    }
+
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     * @return Advertisment
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+
+    /**
+     * Set cond
+     *
+     * @param string $cond
+     * @return Advertisment
+     */
+    public function setCond($cond)
+    {
+        $this->cond = $cond;
+
+        return $this;
+    }
+
+    /**
+     * Get cond
+     *
+     * @return string 
+     */
+    public function getCond()
+    {
+        return $this->cond;
     }
 }

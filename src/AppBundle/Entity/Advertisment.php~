@@ -26,6 +26,9 @@ class Advertisment
      * @var string
      *
      * @ORM\Column(name="text", type="text")
+     * @Assert\Length(
+     *     min=30
+     * )
      */
     private $text;
 
@@ -33,6 +36,7 @@ class Advertisment
      * @var \DateTime
      *
      * @ORM\Column(name="creation_date", type="datetime")
+     * @Assert\DateTime()
      */
     private $creationDate;
 
@@ -40,6 +44,7 @@ class Advertisment
      * @var \DateTime
      *
      * @ORM\Column(name="expired_date", type="datetime")
+     * @Assert\DateTime()
      */
     private $expiredDate;
 
@@ -47,8 +52,24 @@ class Advertisment
      * @var string
      *
      * @ORM\Column(name="title", type="string")
+     * @Assert\Length(
+     *     min=5,
+     *     max=100,
+     *     minMessage="Your title must be at least {{limit}} characters long.",
+     *     maxMessage="Your title cannot be longer than {{limit}} characters long."
+     *     )
      */
     private $title;
+
+    /**
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(name="cond", type="string")
+     */
+    private $cond;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="advertisment")
@@ -259,4 +280,29 @@ class Advertisment
     {
         return $this->title;
     }
+
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     * @return Advertisment
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
 }

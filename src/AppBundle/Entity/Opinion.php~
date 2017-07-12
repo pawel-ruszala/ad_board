@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Opinion
@@ -25,6 +26,11 @@ class Opinion
      * @var string
      *
      * @ORM\Column(name="text", type="text")
+     * @Assert\NotNull()
+     * @Assert\Length(
+     *     min=3,
+     *     max=500
+     * )
      */
     private $text;
 
@@ -32,6 +38,7 @@ class Opinion
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=10)
+     * @Assert\Choice({"Positive", "Neutral", "Negative"})
      */
     private $type;
 

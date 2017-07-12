@@ -3,29 +3,37 @@
 {% block body %}
     <div class="row">
         <div class="col-md-6">
-    <h1>Advertisment creation</h1>
-    {{ form_start(form) }}
-        <div>
-            {{ form_label(form.title) }} (5-100 characters)<br/>
-            {{ form_widget(form.title) }}
-        </div>
-        <br/>
-        <div>
-            {{ form_label(form.text) }} (min 30 characters)<br/>
-            {{ form_widget(form.text) }}
-        </div>
-        <div>
-            {{ form_label(form.category) }}
-            {{ form_widget(form.category) }}
-        </div>
-        <input type="submit" value="Create" class="btn btn-primary"/>
-    {{ form_end(form) }}
+            <h1>Advertisment creation</h1>
+            {{ form_start(form) }}
+            <div>
+                {{ form_label(form.title) }} (5-100 characters)<br/>
+                {{ form_widget(form.title) }}
+            </div>
+            <br/>
+            <div>
+                {{ form_label(form.text) }} (min 30 characters)<br/>
+                {{ form_widget(form.text) }}
+            </div>
+            <div>
+                {{ form_label(form.category) }}
+                {{ form_widget(form.category) }}
+            </div>
+            <div>
+                {{ form_label(form.price) }} (in USD)
+                {{ form_widget(form.price) }}
+            </div>
+            <div>
+                <b>Condtition:</b><br/>
+                {{ form_widget(form.cond) }}
+            </div>
+            <input type="submit" value="Create" class="btn btn-primary"/>
+            {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('advertisment_index') }}">Back to the list</a>
-        </li>
-    </ul>
+            <ul>
+                <li>
+                    <a href="{{ path('advertisment_index') }}">Back to the list</a>
+                </li>
+            </ul>
         </div>
     </div>
 {% endblock %}
