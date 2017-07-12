@@ -18,27 +18,33 @@ At this page you can:
   * Category
 ***
 ### What I have done
+* Used FOS User Bundle
 * Image validation by mimeType/image
-* Generate folders for images
+* Generate directory for images: date/username/uniqe-fileOrginalName
+* Created asserts
+* Showing lasts 3 adverts on main page
+* Sort adverts by date
 * Connect with database
 * Basic template
 * Add pictures form
 * Permissions for logged and not logged user
 * Edit advert
 * Add searching:
-** by part of the text
+** by phrase
 ** by user
 ** by category
 * User Profile
 * Edit username, mail
 * Opinions about users - add, show
 * Colors for opinions (negative - red, positive -green, neutral - blue)
+* You can edit only yours adverts
+* If title is longer than 50, cut the text and add "..."
 ***
 
 ### To do list
-* Messages between users
-* Mailbox
 * Category update
 * Hide advert after expired time
 * Update categories
-
+* Admin panel
+* Add price
+* Add condition

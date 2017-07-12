@@ -28,7 +28,7 @@
         <div class="col-md-9">
             <h3><span class="glyphicon glyphicon-envelope"></span> Contact email: {{ advertisment.user.email }}</h3>
         </div>
-        {% if app.user.id == advertisment.user.id %}
+        {% if app.user and app.user.id == advertisment.user.id %}
             <div class=" col-md-3 text-right">
                 <h3><a href="{{ path('advertisment_edit', {'id':advertisment.id}) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a></h3>
             </div>

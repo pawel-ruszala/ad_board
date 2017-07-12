@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 class OpinionController extends Controller
 {
     /**
+     * form to add new opinion
+     *
      * @Route("/showProfile/{id}/opinion/new", name="newOpinion")
      * @Method("GET")
      */
@@ -27,6 +29,8 @@ class OpinionController extends Controller
     }
 
     /**
+     * add new opinion to database
+     *
      * @Route("/showProfile/{id}/opinion/new", name="userOpinion")
      * @Method("POST")
      */
@@ -54,6 +58,8 @@ class OpinionController extends Controller
     }
 
     /**
+     * show all user's opinions
+     *
      * @Route("/showProfile/{id}/opinions", name="showOpinions")
      */
     public function showOpinionAction($id)

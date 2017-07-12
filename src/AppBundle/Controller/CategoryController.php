@@ -7,6 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class CategoryController extends Controller
 {
+    /**
+     * Generate list of categories
+     */
     public function categoriesMenuAction()
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->findAll();
@@ -15,6 +18,8 @@ class CategoryController extends Controller
     }
 
     /**
+     * Show adverts by category
+     *
      * @Route("/category/{id}", name="showByCategory")
      */
     public function showByCategoryAction($id)

@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 class AdvertismentController extends Controller
 {
     /**
-     * Lists all advertisment entities.
+     * Show all advertisemnts
      *
      * @Route("/", name="advertisment_index")
      * @Method("GET")
@@ -60,7 +60,7 @@ class AdvertismentController extends Controller
     }
 
     /**
-     * Finds and displays a advertisment entity.
+     * Finds and displays a advertisment.
      *
      * @Route("/{id}", name="advertisment_show")
      * @Method("GET")
@@ -85,7 +85,6 @@ class AdvertismentController extends Controller
      */
     public function editAction(Request $request, Advertisment $advertisment)
     {
-//        $userId = $this->getDoctrine()->getRepository('AppBundle:Advertisment')->find($id)->getUser();
         $userId = $advertisment->getUser();
         $user = $this->getUser();
 

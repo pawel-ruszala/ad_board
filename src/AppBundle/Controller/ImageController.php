@@ -53,6 +53,7 @@ class ImageController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             /**
              * @var $image UploadedFile
+             * Generate directory date/username/uniqe-fileOrginalName
              */
             $values = $form->getData();
             $file = $values['image'];
@@ -60,6 +61,7 @@ class ImageController extends Controller
             $filename = uniqid() . '-' . $file->getClientOriginalName();
             $file->move($filepath, $filename);
 
+            //save to database
             $em = $this->getDoctrine()->getManager();
             $path = new Image();
             $path->setPathImage($filepath . $filename);

@@ -9,37 +9,3 @@
     </div>
 
 {% endblock %}
-
-
-
-    {#<table class="table">#}
-    {#<thead>#}
-    {#<tr>#}
-    {#<th>Title</th>#}
-    {#<th>Category</th>#}
-    {#<th>Date of creation</th>#}
-    {#<th>Date of expire</th>#}
-    {#<th>User</th>#}
-    {#<th>Actions</th>#}
-    {#</tr>#}
-    {#</thead>#}
-    {#<a href="{{ path('advertisment_new') }}">Create a new advertisment</a>#}
-    {#<tr>#}
-    {#<td>{{ advertisment.title }}</td>#}
-    {#<td>{{ advertisment.category.name }}</td>#}
-    {#<td>{% if advertisment.creationDate %}{{ advertisment.creationDate|date('Y-m-d') }}{% endif %}</td>#}
-    {#<td>{% if advertisment.expiredDate %}{{ advertisment.expiredDate|date('Y-m-d') }}{% endif %}</td>#}
-    {#<td>{{ advertisment.user.username }}</td>#}
-    {#<td>#}
-    {#<ul>#}
-    {#<li>#}
-    {#<a href="{{ path('advertisment_show', { 'id': advertisment.id }) }}">show</a>#}
-    {#</li>#}
-    {#<li>#}
-    {#<a href="{{ path('advertisment_edit', { 'id': advertisment.id }) }}">edit</a>#}
-    {#</li>#}
-    {#</ul>#}
-    {#</td>#}
-    {#</tr>#}
-    {#</tbody>#}
-{#</table>#}

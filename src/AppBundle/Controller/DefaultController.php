@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
+     * Show lasts 3 adverts
+     *
      * @Route("/", name="homepage")
      */
     public function indexActionAction(Request $request)
@@ -21,6 +23,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Show adverts by user id
+     *
      * @Route("/showByUser/{id}", name="userAdv")
      */
     public function showUserAdsAction($id = null)

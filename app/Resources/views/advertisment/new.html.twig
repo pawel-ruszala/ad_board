@@ -6,12 +6,12 @@
     <h1>Advertisment creation</h1>
     {{ form_start(form) }}
         <div>
-            {{ form_label(form.title) }}<br/>
+            {{ form_label(form.title) }} (5-100 characters)<br/>
             {{ form_widget(form.title) }}
         </div>
         <br/>
         <div>
-            {{ form_label(form.text) }}<br/>
+            {{ form_label(form.text) }} (min 30 characters)<br/>
             {{ form_widget(form.text) }}
         </div>
         <div>

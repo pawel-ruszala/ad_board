@@ -26,6 +26,10 @@ class Advertisment
      * @var string
      *
      * @ORM\Column(name="text", type="text")
+     * @Assert\Length(
+     *     min=30,
+     *     max=1000
+     * )
      */
     private $text;
 
@@ -33,6 +37,7 @@ class Advertisment
      * @var \DateTime
      *
      * @ORM\Column(name="creation_date", type="datetime")
+     * @Assert\DateTime()
      */
     private $creationDate;
 
@@ -40,6 +45,7 @@ class Advertisment
      * @var \DateTime
      *
      * @ORM\Column(name="expired_date", type="datetime")
+     * @Assert\DateTime()
      */
     private $expiredDate;
 
@@ -47,6 +53,12 @@ class Advertisment
      * @var string
      *
      * @ORM\Column(name="title", type="string")
+     * @Assert\Length(
+     *     min=5,
+     *     max=100,
+     *     minMessage="Your title must be at least {{limit}} characters long.",
+     *     maxMessage="Your title cannot be longer than {{limit}} characters long."
+     *     )
      */
     private $title;
 
