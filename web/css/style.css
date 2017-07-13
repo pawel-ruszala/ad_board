@@ -48,5 +48,10 @@ body {
 
 .thumbnail {
     width: 250px;
-    height: 340px;
+    height: 360px;
+}
+
+.checkButton {
+    position: absolute;
+    bottom: 20px;
 }

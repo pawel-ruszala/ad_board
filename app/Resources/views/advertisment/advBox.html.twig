@@ -12,7 +12,7 @@
         <div class="caption">
             <h4>{{ advertisment.title|length > 50 ? advertisment.title|slice(0, 50) ~ '...' : advertisment.title }}</h4>
             <div style="text-align: left">Price: ${{advertisment.price}}, {{ advertisment.cond }}</div>
-            <p><a href=" {{ path('advertisment_show', {'id':advertisment.id})  }}" class="btn btn-primary" role="button">Click to check</a></p>
+            <p class="checkButton"><a href=" {{ path('advertisment_show', {'id':advertisment.id})  }}" class="btn btn-primary" role="button">Click to check</a></p>
         </div>
     </div>
 </div>
