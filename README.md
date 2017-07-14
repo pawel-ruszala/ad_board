@@ -46,5 +46,3 @@ At this page you can:
 * Hide advert after expired time
 * Update categories
 * Admin panel
-* Add price
-* Add condition
