@@ -49,10 +49,11 @@ At this page you can:
 * Admin panel
 
 ### Pictures
-[alt text][main]
-[alt text][register]
-[alt text][opinions]
-[alt text][search]
+![alt text][main]
+![alt text][register]
+![alt text][opinions]
+![alt text][search]
+
 
 [main]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/main_page.png "main page"
 [register]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/register.png "register"
