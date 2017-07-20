@@ -39,6 +39,7 @@ At this page you can:
 * Colors for opinions (negative - red, positive -green, neutral - blue)
 * You can edit only yours adverts
 * If title is longer than 50, cut the text and add "..."
+* Expired time auto set to 30 days
 ***
 
 ### To do list
