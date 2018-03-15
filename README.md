@@ -48,15 +48,15 @@ At this page you can:
 * Update categories
 * Admin panel
 
-### Pictures
+<!--### Pictures
 ![alt text][main]
 ![alt text][register]
 ![alt text][opinions]
 ![alt text][search]
 ![alt text][advert]
-
+<!--
 [main]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/main_page.png "main page"
 [register]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/register.png "register"
 [opinions]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/opinions.png "opinions"
 [search]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/search.png "search"
-[advert]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/advert.png "advert"
+[advert]: https://raw.githubusercontent.com/pawel-ruszala/ad_board/master/web/images/readme/advert.png "advert"-->
